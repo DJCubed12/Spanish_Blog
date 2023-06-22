@@ -1,1 +1,12 @@
-<p>entry works!</p>
+<mat-form-field>
+  <mat-label>Title</mat-label>
+  <input matInput />
+</mat-form-field>
+<br />
+<button (click)="getData()">getData</button>
+<p>Database says: {{ data?.value }}</p>
+<!-- Angular async pipe to display values from async functions -->
+<mat-form-field>
+  <mat-label>Body</mat-label>
+  <textarea matInput spellcheck="true"></textarea>
+</mat-form-field>
