@@ -1,5 +1,15 @@
 {
-    "test": {
-        "value": "Hello, World! I'm JaSON, what's your name?"
+  "test": {
+    "value": "Hello, World! I'm JaSON, what's your name?"
+  },
+  "posts": [
+    {
+      "title": "Second",
+      "body": "needed a 2nd on to see if ngFor is working properly"
+    },
+    {
+      "title": "First example post",
+      "body": "This is where the core post material lives."
     }
+  ]
 }

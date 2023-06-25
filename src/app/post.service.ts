@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 
 import { Post } from '../models';
 
-const URL = 'http://localhost:3000/test';
+const URL = 'http://localhost:3000/posts';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
-  async getData(): Promise<Post | null> {
+  async getPosts(): Promise<Post[]> {
     const data = await fetch(URL);
     return await data.json();
   }

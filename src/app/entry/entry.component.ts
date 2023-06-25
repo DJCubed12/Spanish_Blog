@@ -24,7 +24,7 @@ import { Post } from 'src/models';
   ],
 })
 export class EntryComponent {
-  public data: Post | null = null;
+  public posts: Post[] | null = null;
 
   postForm = new FormGroup({
     title: new FormControl(''),
@@ -32,8 +32,12 @@ export class EntryComponent {
   });
 
   constructor(private postService: PostService) {
-    this.postService.getData().then((post) => {
-      this.data = post;
+    this.getPosts();
+  }
+
+  getPosts() {
+    this.postService.getPosts().then((posts) => {
+      this.posts = posts;
     });
   }
 
