@@ -1,17 +1,43 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
-const URL = 'http://localhost:3000/test';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
+import { PostService } from '../post.service';
+import { Post } from 'src/models';
 
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.css'],
+  providers: [PostService],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+  ],
 })
 export class EntryComponent {
-  public data: { value: string } | null = null;
+  public data: Post | null = null;
 
-  async getData(): Promise<void> {
-    const data = await fetch(URL);
-    this.data = (await data.json()) ?? null;
+  postForm = new FormGroup({
+    title: new FormControl(''),
+    body: new FormControl(''),
+  });
+
+  constructor(private postService: PostService) {
+    this.postService.getData().then((post) => {
+      this.data = post;
+    });
+  }
+
+  submitPost() {
+    console.log(this.postForm.value.title, this.postForm.value.body);
   }
 }
