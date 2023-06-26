@@ -4,12 +4,29 @@
   },
   "posts": [
     {
+      "id": 1,
       "title": "Second",
       "body": "needed a 2nd on to see if ngFor is working properly"
     },
     {
+      "id": 0,
       "title": "First example post",
       "body": "This is where the core post material lives."
+    },
+    {
+      "title": "Test",
+      "body": "This is a test to see if new posts are properly pushed to json-server. First test after code creation.",
+      "id": 2
+    },
+    {
+      "title": "Test #2",
+      "body": "First one worked good. Lets see if the id tracking is working.",
+      "id": 3
+    },
+    {
+      "title": "Test #3",
+      "body": "Lets just see if refreshing database info strategy is working.",
+      "id": 4
     }
   ]
 }

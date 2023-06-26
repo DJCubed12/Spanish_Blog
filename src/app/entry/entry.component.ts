@@ -42,6 +42,11 @@ export class EntryComponent {
   }
 
   submitPost() {
-    console.log(this.postForm.value.title, this.postForm.value.body);
+    const post: Post = {
+      title: this.postForm.value.title ?? '',
+      body: this.postForm.value.body ?? '',
+    };
+
+    this.postService.postPost(post).then(() => this.getPosts());
   }
 }
