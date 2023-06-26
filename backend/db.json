@@ -4,14 +4,14 @@
   },
   "posts": [
     {
-      "id": 1,
-      "title": "Second",
-      "body": "needed a 2nd on to see if ngFor is working properly"
+      "title": "First example post",
+      "body": "This is where the core post material lives.",
+      "id": 0
     },
     {
-      "id": 0,
-      "title": "First example post",
-      "body": "This is where the core post material lives."
+      "title": "Second",
+      "body": "needed a 2nd on to see if ngFor is working properly",
+      "id": 1
     },
     {
       "title": "Test",

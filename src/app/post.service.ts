@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Post } from '../models';
 
-const URL = 'http://localhost:3000/posts';
+const URL = 'http://localhost:3000/posts?_sort=id&_order=desc';
 
 @Injectable({
   providedIn: 'root',
