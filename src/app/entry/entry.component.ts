@@ -6,14 +6,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
-import { PostService } from '../post.service';
-import { Post } from 'src/models';
+import { EntryService } from '../entry.service';
+import { Entry } from 'src/models';
 
 @Component({
   selector: 'app-entry',
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.css'],
-  providers: [PostService],
+  providers: [EntryService],
   standalone: true,
   imports: [
     CommonModule,
@@ -24,29 +24,29 @@ import { Post } from 'src/models';
   ],
 })
 export class EntryComponent {
-  public posts: Post[] | null = null;
+  public entries: Entry[] | null = null;
 
-  postForm = new FormGroup({
+  entryForm = new FormGroup({
     title: new FormControl(''),
     body: new FormControl(''),
   });
 
-  constructor(private postService: PostService) {
-    this.getPosts();
+  constructor(private entryService: EntryService) {
+    this.getEntries();
   }
 
-  getPosts() {
-    this.postService.getPosts().then((posts) => {
-      this.posts = posts;
+  getEntries() {
+    this.entryService.getEntries().then((entries) => {
+      this.entries = entries;
     });
   }
 
-  submitPost() {
-    const post: Post = {
-      title: this.postForm.value.title ?? '',
-      body: this.postForm.value.body ?? '',
+  postEntry() {
+    const entry: Entry = {
+      title: this.entryForm.value.title ?? '',
+      body: this.entryForm.value.body ?? '',
     };
 
-    this.postService.postPost(post).then(() => this.getPosts());
+    this.entryService.postEntries(entry).then(() => this.getEntries());
   }
 }

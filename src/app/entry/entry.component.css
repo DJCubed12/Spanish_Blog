@@ -9,11 +9,11 @@
   align-items: flex-start;
 }
 
-.previous-posts-header {
+.previous-entries-header {
   text-align: center;
 }
 
-.post-title {
+.entry-title {
   text-align: center;
   font-weight: 500;
 }

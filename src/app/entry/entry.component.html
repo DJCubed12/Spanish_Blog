@@ -1,4 +1,4 @@
-<form [formGroup]="postForm">
+<form [formGroup]="entryForm">
   <mat-form-field class="title-input">
     <mat-label>Title</mat-label>
     <input formControlName="title" matInput />
@@ -15,13 +15,13 @@
   </mat-form-field>
 </form>
 <div class="post-buttons">
-  <button mat-raised-button (click)="submitPost()">Post</button>
+  <button mat-raised-button (click)="postEntry()">Post</button>
 </div>
 
-<h2 class="previous-posts-header">Previous Posts:</h2>
-<div *ngIf="posts">
-  <div *ngFor="let post of posts">
-    <h3 class="post-title">{{ post.title }}</h3>
-    <p>{{ post.body }}</p>
+<h2 class="previous-entries-header">Previous Entries:</h2>
+<div *ngIf="entries">
+  <div *ngFor="let entry of entries">
+    <h3 class="entry-title">{{ entry.title }}</h3>
+    <p>{{ entry.body }}</p>
   </div>
 </div>

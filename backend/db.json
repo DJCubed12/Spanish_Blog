@@ -2,7 +2,7 @@
   "test": {
     "value": "Hello, World! I'm JaSON, what's your name?"
   },
-  "posts": [
+  "entries": [
     {
       "title": "First example post",
       "body": "This is where the core post material lives.",
@@ -27,6 +27,11 @@
       "title": "Test #3",
       "body": "Lets just see if refreshing database info strategy is working.",
       "id": 4
+    },
+    {
+      "title": "Refactor to 'entry'",
+      "body": "We have refactored to use 'entry' terminology instead of 'post'. 'Post' can be confused with an REST POST request. It also implies something more public than what we are trying to do here. As this is intended for more personal use, 'entry' felt more apt.",
+      "id": 5
     }
   ]
 }
