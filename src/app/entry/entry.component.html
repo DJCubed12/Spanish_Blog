@@ -17,11 +17,3 @@
 <div class="post-buttons">
   <button mat-raised-button (click)="postEntry()">Post</button>
 </div>
-
-<h2 class="previous-entries-header">Previous Entries:</h2>
-<div *ngIf="entries">
-  <div *ngFor="let entry of entries">
-    <h3 class="entry-title">{{ entry.title }}</h3>
-    <p>{{ entry.body }}</p>
-  </div>
-</div>

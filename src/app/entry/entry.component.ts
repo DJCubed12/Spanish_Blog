@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,10 +12,9 @@ import { Entry } from 'src/models';
   selector: 'app-entry',
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.css'],
-  providers: [EntryService],
   standalone: true,
+  providers: [EntryService],
   imports: [
-    CommonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -24,22 +22,12 @@ import { Entry } from 'src/models';
   ],
 })
 export class EntryComponent {
-  public entries: Entry[] | null = null;
-
   entryForm = new FormGroup({
     title: new FormControl(''),
     body: new FormControl(''),
   });
 
-  constructor(private entryService: EntryService) {
-    this.getEntries();
-  }
-
-  getEntries() {
-    this.entryService.getEntries().then((entries) => {
-      this.entries = entries;
-    });
-  }
+  constructor(private readonly entryService: EntryService) {}
 
   postEntry() {
     const entry: Entry = {
@@ -48,7 +36,7 @@ export class EntryComponent {
     };
 
     this.entryService.postEntries(entry).then((success: boolean) => {
-      this.getEntries();
+      // Emit event so PastEntryList refreshes data
       if (success) {
         this.entryForm.reset();
       } else {
