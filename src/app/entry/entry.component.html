@@ -1,19 +1,27 @@
 <form [formGroup]="postForm">
-  <mat-form-field>
+  <mat-form-field class="title-input">
     <mat-label>Title</mat-label>
     <input formControlName="title" matInput />
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field class="body-input">
     <mat-label>Body</mat-label>
-    <textarea formControlName="body" matInput spellcheck="true"></textarea>
+    <textarea
+      formControlName="body"
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="7"
+      spellcheck="true"
+    ></textarea>
   </mat-form-field>
 </form>
-<button mat-raised-button (click)="submitPost()">Submit</button>
+<div class="post-buttons">
+  <button mat-raised-button (click)="submitPost()">Post</button>
+</div>
 
-<h2>Previous Posts:</h2>
+<h2 class="previous-posts-header">Previous Posts:</h2>
 <div *ngIf="posts">
   <div *ngFor="let post of posts">
-    <p>Title: {{ post.title }}</p>
+    <h3 class="post-title">{{ post.title }}</h3>
     <p>{{ post.body }}</p>
   </div>
 </div>

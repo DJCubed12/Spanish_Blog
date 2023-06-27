@@ -1,0 +1,19 @@
+.title-input,
+.body-input {
+  display: block;
+}
+
+.post-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+}
+
+.previous-posts-header {
+  text-align: center;
+}
+
+.post-title {
+  text-align: center;
+  font-weight: 500;
+}
