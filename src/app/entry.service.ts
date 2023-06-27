@@ -22,10 +22,14 @@ export class EntryService {
     return await data.json();
   }
 
-  async postEntries(entry: Entry): Promise<void> {
+  /**
+   * Send POST request with entry to backend server
+   * @returns true if successful, false if an error occured.
+   */
+  async postEntries(entry: Entry): Promise<boolean> {
     if (this.nextId === undefined) {
       console.log('EntryService error: nextId is undefined');
-      return;
+      return false;
     }
 
     entry.id = this.nextId;
@@ -40,8 +44,10 @@ export class EntryService {
 
     if (response.ok) {
       this.nextId++;
+      return true;
     } else {
       console.log(`EntryService error: Bad post ${response.status}`);
+      return false;
     }
   }
 }

@@ -47,6 +47,13 @@ export class EntryComponent {
       body: this.entryForm.value.body ?? '',
     };
 
-    this.entryService.postEntries(entry).then(() => this.getEntries());
+    this.entryService.postEntries(entry).then((success: boolean) => {
+      this.getEntries();
+      if (success) {
+        this.entryForm.reset();
+      } else {
+        // Error
+      }
+    });
   }
 }
