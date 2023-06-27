@@ -1,4 +1,24 @@
-* {
-  align-content: center;
-  width: 75%;
+.header {
+  display: block;
+  text-align: center;
+  background: white;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px;
+}
+
+.left {
+  background: blue;
+}
+
+.middle {
+  background: yellowgreen;
+}
+
+.right {
+  background: blueviolet;
 }
