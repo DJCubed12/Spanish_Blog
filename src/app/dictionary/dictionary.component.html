@@ -1,4 +1,11 @@
 <mat-form-field>
   <mat-label>Translate</mat-label>
-  <input matInput spellcheck="true" />
+  <input
+    matInput
+    spellcheck="true"
+    (keyup.enter)="translate(word.value)"
+    #word
+  />
 </mat-form-field>
+
+<p>{{ results }}</p>
