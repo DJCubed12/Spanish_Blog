@@ -1,3 +1,16 @@
 <div *ngIf="result" class="result">
-  <p>{{ result.word }} ({{ result.context }})</p>
+  <!-- TODO: lang and word should be written above from parent -->
+  <h2>({{ result.context }}) {{ result.meaning }}</h2>
+  <p>
+    <i>
+      {{ result.part }}
+      <span *ngIf="result.gender">[{{ result.gender }}]</span>
+      <span *ngIf="result.regions.length"> - {{ result.regions }}</span>
+    </i>
+  </p>
+  <p>
+    {{ result.examples[0].original }}
+    <br />
+    <i>{{ result.examples[0].translated }}</i>
+  </p>
 </div>
