@@ -8,4 +8,5 @@
   />
 </mat-form-field>
 
-<p>{{ results }}</p>
+<p *ngIf="message">{{ message }}</p>
+<result *ngFor="let r of results"></result>
