@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { EntryComponent } from './entry/entry.component';
 import { PastEntryListComponent } from './past-entry-list/past-entry-list.component';
+import { DictionaryComponent } from './dictionary/dictionary.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { PastEntryListComponent } from './past-entry-list/past-entry-list.compon
     BrowserAnimationsModule,
     EntryComponent,
     PastEntryListComponent,
+    DictionaryComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

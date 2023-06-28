@@ -9,7 +9,7 @@ import { EntryService } from '../entry.service';
 import { Entry } from 'src/models';
 
 @Component({
-  selector: 'app-entry',
+  selector: 'entry',
   templateUrl: './entry.component.html',
   styleUrls: ['./entry.component.css'],
   standalone: true,
@@ -36,11 +36,11 @@ export class EntryComponent {
     };
 
     this.entryService.postEntries(entry).then((success: boolean) => {
-      // Emit event so PastEntryList refreshes data
+      // TODO: Emit event so PastEntryList refreshes data
       if (success) {
         this.entryForm.reset();
       } else {
-        // Error
+        // TODO: Error handling
       }
     });
   }
