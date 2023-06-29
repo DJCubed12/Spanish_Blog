@@ -1,4 +1,11 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -64,17 +71,26 @@ const EXAMPLE_WORDS: WordResult[] = [
     MatTooltipModule,
   ],
 })
-export class NewEntryComponent {
-  @Output() refreshEntriesEvent = new EventEmitter<void>();
+export class NewEntryComponent implements OnChanges {
+  @Input() public newGlossaryWord?: WordResult;
+  public glossary: WordResult[] = EXAMPLE_WORDS;
 
   public entryForm = new FormGroup({
     title: new FormControl(''),
     body: new FormControl(''),
   });
 
-  public glossary: WordResult[] = EXAMPLE_WORDS;
+  @Output() private refreshEntriesEvent = new EventEmitter<void>();
 
   constructor(private readonly entryService: EntryService) {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    for (const propName in changes) {
+      console.log(
+        `${propName} changed from ${changes[propName].previousValue} to ${changes[propName].currentValue?.word}`
+      );
+    }
+  }
 
   postEntry() {
     const entry: Entry = {

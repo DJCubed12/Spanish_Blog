@@ -3,7 +3,10 @@
   <div class="left">Left</div>
 
   <div class="middle">
-    <new-entry (refreshEntriesEvent)="getEntries()" />
+    <new-entry
+      [newGlossaryWord]="newGlossaryWord"
+      (refreshEntriesEvent)="getEntries()"
+    />
 
     <h2 class="previous-entries-header">Previous Entries:</h2>
     <div *ngIf="entries">
@@ -11,6 +14,8 @@
     </div>
   </div>
 
-  <div class="right"><dictionary /></div>
+  <div class="right">
+    <dictionary (addToGlossaryEvent)="addToGlossary($event)" />
+  </div>
 </div>
 <router-outlet></router-outlet>

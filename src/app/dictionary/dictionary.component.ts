@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatInputModule } from '@angular/material/input';
@@ -19,6 +19,8 @@ export class DictionaryComponent {
   public results: WordResult[] = [];
   public message: string = '';
 
+  @Output() private addToGlossaryEvent = new EventEmitter<WordResult>();
+
   public translate(word: string): void {
     this.message = 'Searching...';
     sdapi.translate(word).then(
@@ -28,7 +30,7 @@ export class DictionaryComponent {
   }
 
   public addToGlossary(word: WordResult) {
-    console.log(`Added ${word.word} to glossary`);
+    this.addToGlossaryEvent.emit(word);
   }
 
   private showResults(results: WordResult[]): void {

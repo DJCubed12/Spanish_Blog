@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { WordResult } from 'sdapi/lib/dictionary';
 
 import { Entry } from 'src/models';
 import { EntryService } from './entry.service';
@@ -10,14 +12,20 @@ import { EntryService } from './entry.service';
 })
 export class AppComponent {
   public entries: Entry[] | null = null;
+  public newGlossaryWord?: WordResult;
 
   constructor(private readonly entryService: EntryService) {
     this.getEntries();
   }
 
-  getEntries() {
+  public getEntries() {
     this.entryService.getEntries().then((entries) => {
       this.entries = entries;
     });
+  }
+
+  public addToGlossary(word: WordResult) {
+    console.log(`Added ${word.word} to glossary`);
+    this.newGlossaryWord = word;
   }
 }
