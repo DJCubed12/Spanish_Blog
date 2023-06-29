@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { EntryComponent } from './entry/entry.component';
+
 import { EntryService } from '../entry.service';
 import { Entry } from '../../models';
 
@@ -10,7 +12,7 @@ import { Entry } from '../../models';
   styleUrls: ['./past-entry-list.component.css'],
   standalone: true,
   providers: [EntryService],
-  imports: [CommonModule],
+  imports: [CommonModule, EntryComponent],
 })
 export class PastEntryListComponent {
   public entries: Entry[] | null = null;
