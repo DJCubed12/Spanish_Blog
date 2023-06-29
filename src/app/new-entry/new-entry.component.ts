@@ -10,9 +10,9 @@ import { EntryService } from '../entry.service';
 import { Entry } from 'src/models';
 
 @Component({
-  selector: 'entry',
-  templateUrl: './entry.component.html',
-  styleUrls: ['./entry.component.css'],
+  selector: 'new-entry',
+  templateUrl: './new-entry.component.html',
+  styleUrls: ['./new-entry.component.css'],
   standalone: true,
   providers: [EntryService],
   imports: [
@@ -23,7 +23,7 @@ import { Entry } from 'src/models';
     MatButtonModule,
   ],
 })
-export class EntryComponent {
+export class NewEntryComponent {
   entryForm = new FormGroup({
     title: new FormControl(''),
     body: new FormControl(''),
