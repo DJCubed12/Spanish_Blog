@@ -23,36 +23,6 @@ import { Language } from 'sdapi/lib/constants';
 import { EntryService } from '../entry.service';
 import { Entry } from 'src/models';
 
-const EXAMPLE_WORDS: WordResult[] = [
-  {
-    lang: Language.English,
-    word: 'hermano',
-    context: '(relative)',
-    meaning: 'brother',
-    part: 'noun',
-    examples: [],
-    regions: [],
-  },
-  {
-    lang: Language.English,
-    word: 'leche',
-    context: '(liquid)',
-    meaning: 'milk',
-    part: 'noun',
-    examples: [],
-    regions: [],
-  },
-  {
-    lang: Language.English,
-    word: 'perro',
-    context: '(animal)',
-    meaning: 'dog',
-    part: 'noun',
-    examples: [],
-    regions: [],
-  },
-];
-
 @Component({
   selector: 'new-entry',
   templateUrl: './new-entry.component.html',
@@ -73,7 +43,7 @@ const EXAMPLE_WORDS: WordResult[] = [
 })
 export class NewEntryComponent implements OnChanges {
   @Input() public newGlossaryWord?: WordResult;
-  public glossary: WordResult[] = EXAMPLE_WORDS;
+  public glossary: WordResult[] = [];
 
   public entryForm = new FormGroup({
     title: new FormControl(''),
@@ -109,12 +79,12 @@ export class NewEntryComponent implements OnChanges {
     });
   }
 
-  removeWord(glossaryIndex: number) {
-    this.glossary.splice(glossaryIndex, 1);
-  }
-
   addWord(word: WordResult) {
     this.glossary.push(word);
+  }
+
+  removeWord(glossaryIndex: number) {
+    this.glossary.splice(glossaryIndex, 1);
   }
 
   clickedWord(glossaryIndex: number) {

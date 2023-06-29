@@ -27,7 +27,7 @@
           *ngFor="let x of glossary; index as glossaryIndex"
           (removed)="removeWord(glossaryIndex)"
           (click)="clickedWord(glossaryIndex)"
-          matTooltip="{{ x.context }} {{ x.meaning }}"
+          matTooltip="({{ x.context }}) {{ x.meaning }}"
         >
           {{ x.word }}
           <mat-icon matChipRemove>cancel</mat-icon>

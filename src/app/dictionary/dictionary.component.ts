@@ -7,6 +7,7 @@ import { ResultComponent } from './result/result.component';
 
 import sdapi from 'sdapi';
 import { WordResult } from 'sdapi/lib/dictionary';
+import { Language } from 'sdapi/lib/constants';
 
 @Component({
   selector: 'dictionary',
@@ -30,6 +31,14 @@ export class DictionaryComponent {
   }
 
   public addToGlossary(word: WordResult) {
+    // Glossary should only be spanish words (swap word and meaning)
+    if (word.lang === Language.English) {
+      let spanishTranslation = word.meaning;
+      word.meaning = word.word;
+      word.word = spanishTranslation;
+      // Swap original and translated in examples too?
+    }
+
     this.addToGlossaryEvent.emit(word);
   }
 

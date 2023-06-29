@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { WordResult } from 'sdapi/lib/dictionary';
 
@@ -22,10 +22,5 @@ export class AppComponent {
     this.entryService.getEntries().then((entries) => {
       this.entries = entries;
     });
-  }
-
-  public addToGlossary(word: WordResult) {
-    console.log(`Added ${word.word} to glossary`);
-    this.newGlossaryWord = word;
   }
 }
