@@ -70,4 +70,9 @@ export class NewEntryComponent {
   addChip(chipName: string) {
     if (chipName !== '') this.chips.push(chipName);
   }
+
+  clicked(chipName: string) {
+    // NOTE: Clicking remove icon doesn't trigger this; Very good for my purposes of changing its color and showing definition
+    console.log(chipName, 'was clicked.');
+  }
 }

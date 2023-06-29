@@ -23,7 +23,11 @@
 
       <h2>Glossary</h2>
       <mat-chip-grid>
-        <mat-chip-row *ngFor="let x of chips" (removed)="remove(x)">
+        <mat-chip-row
+          *ngFor="let x of chips"
+          (removed)="remove(x)"
+          (click)="clicked(x)"
+        >
           {{ x }}
           <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip-row>
