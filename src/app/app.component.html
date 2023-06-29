@@ -1,10 +1,16 @@
 <h1 class="header">Hello, World!</h1>
 <div class="columns">
   <div class="left">Left</div>
+
   <div class="middle">
     <new-entry />
-    <app-past-entry-list />
+
+    <h2 class="previous-entries-header">Previous Entries:</h2>
+    <div *ngIf="entries">
+      <entry *ngFor="let entry of entries" [entry]="entry" class="entry" />
+    </div>
   </div>
+
   <div class="right"><dictionary /></div>
 </div>
 <router-outlet></router-outlet>

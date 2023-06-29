@@ -19,6 +19,14 @@
   background: yellowgreen;
 }
 
+.previous-entries-header {
+  text-align: center;
+}
+
+.entry {
+  margin: 15px;
+}
+
 .right {
   background: blueviolet;
 }
