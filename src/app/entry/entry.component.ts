@@ -13,5 +13,5 @@ import { Entry } from 'src/models';
   imports: [CommonModule, MatCardModule],
 })
 export class EntryComponent {
-  @Input() entry: Entry | null = null;
+  @Input() entry?: Entry;
 }

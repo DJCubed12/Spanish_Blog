@@ -14,10 +14,10 @@ import { WordResult } from 'sdapi/lib/dictionary';
   imports: [CommonModule, MatCardModule, MatButtonModule],
 })
 export class ResultComponent {
-  @Input() public result: WordResult | null = null;
+  @Input() public result?: WordResult;
   @Output() private addToGlossaryEvent = new EventEmitter<WordResult>();
 
   public addToGlossary() {
-    this.addToGlossaryEvent.emit(this.result!);
+    this.addToGlossaryEvent.emit(this.result);
   }
 }
