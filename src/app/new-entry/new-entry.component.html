@@ -22,16 +22,16 @@
       </mat-form-field>
 
       <h2>Glossary</h2>
-      <mat-chip-grid>
-        <mat-chip-row
+      <mat-chip-set>
+        <mat-chip
           *ngFor="let x of chips"
           (removed)="remove(x)"
           (click)="clicked(x)"
         >
           {{ x }}
           <mat-icon matChipRemove>cancel</mat-icon>
-        </mat-chip-row>
-      </mat-chip-grid>
+        </mat-chip>
+      </mat-chip-set>
 
       <input type="text" #chipName />
       <button type="button" (click)="addChip(chipName.value)">Add</button>
