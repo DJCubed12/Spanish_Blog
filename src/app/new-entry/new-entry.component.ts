@@ -66,4 +66,8 @@ export class NewEntryComponent {
       this.chips.splice(i, 1);
     }
   }
+
+  addChip(chipName: string) {
+    if (chipName !== '') this.chips.push(chipName);
+  }
 }

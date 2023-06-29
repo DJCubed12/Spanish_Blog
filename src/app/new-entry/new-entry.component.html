@@ -28,6 +28,9 @@
           <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip-row>
       </mat-chip-grid>
+
+      <input type="text" #chipName />
+      <button type="button" (click)="addChip(chipName.value)">Add</button>
     </mat-card-content>
   </form>
 
