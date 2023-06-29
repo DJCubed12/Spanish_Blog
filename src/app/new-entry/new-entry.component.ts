@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
@@ -18,6 +19,7 @@ import { Entry } from 'src/models';
   standalone: true,
   providers: [EntryService],
   imports: [
+    CommonModule,
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
@@ -35,7 +37,7 @@ export class NewEntryComponent {
     body: new FormControl(''),
   });
 
-  public disable = false;
+  chips = ['Chip 1', 'Chip 2', 'Chip HIII', 'Chip 4'];
 
   constructor(private readonly entryService: EntryService) {}
 
@@ -57,8 +59,11 @@ export class NewEntryComponent {
     });
   }
 
-  doSomething() {
-    console.log('CLICKED!');
-    this.disable = !this.disable;
+  remove(chipName: string) {
+    const i = this.chips.indexOf(chipName);
+
+    if (i >= 0) {
+      this.chips.splice(i, 1);
+    }
   }
 }
