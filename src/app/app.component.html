@@ -3,7 +3,7 @@
   <div class="left">Left</div>
 
   <div class="middle">
-    <new-entry />
+    <new-entry (refreshEntriesEvent)="getEntries()" />
 
     <h2 class="previous-entries-header">Previous Entries:</h2>
     <div *ngIf="entries">

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,6 +24,8 @@ import { Entry } from 'src/models';
   ],
 })
 export class NewEntryComponent {
+  @Output() refreshEntriesEvent = new EventEmitter<void>();
+
   entryForm = new FormGroup({
     title: new FormControl(''),
     body: new FormControl(''),
@@ -36,11 +38,13 @@ export class NewEntryComponent {
       title: this.entryForm.value.title ?? '',
       body: this.entryForm.value.body ?? '',
     };
+    if (!entry.title || !entry.body) return; // Empty post
 
     this.entryService.postEntries(entry).then((success: boolean) => {
       // TODO: Emit event so PastEntryList refreshes data
       if (success) {
         this.entryForm.reset();
+        this.refreshEntriesEvent.emit();
       } else {
         // TODO: Error handling
       }
