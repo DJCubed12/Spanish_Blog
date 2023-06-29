@@ -32,12 +32,12 @@ import { Entry } from 'src/models';
 export class NewEntryComponent {
   @Output() refreshEntriesEvent = new EventEmitter<void>();
 
-  entryForm = new FormGroup({
+  public entryForm = new FormGroup({
     title: new FormControl(''),
     body: new FormControl(''),
   });
 
-  chips = ['Chip 1', 'Chip 2', 'Chip HIII', 'Chip 4'];
+  public glossary = ['Chip 1', 'Chip 2', 'Chip HIII', 'Chip 4'];
 
   constructor(private readonly entryService: EntryService) {}
 
@@ -49,7 +49,6 @@ export class NewEntryComponent {
     if (!entry.title || !entry.body) return; // Empty post
 
     this.entryService.postEntries(entry).then((success: boolean) => {
-      // TODO: Emit event so PastEntryList refreshes data
       if (success) {
         this.entryForm.reset();
         this.refreshEntriesEvent.emit();
@@ -59,19 +58,19 @@ export class NewEntryComponent {
     });
   }
 
-  remove(chipName: string) {
-    const i = this.chips.indexOf(chipName);
+  removeWord(chipName: string) {
+    const i = this.glossary.indexOf(chipName);
 
     if (i >= 0) {
-      this.chips.splice(i, 1);
+      this.glossary.splice(i, 1);
     }
   }
 
-  addChip(chipName: string) {
-    if (chipName !== '') this.chips.push(chipName);
+  addWord(chipName: string) {
+    if (chipName !== '') this.glossary.push(chipName);
   }
 
-  clicked(chipName: string) {
+  clickedWord(chipName: string) {
     // NOTE: Clicking remove icon doesn't trigger this; Very good for my purposes of changing its color and showing definition
     console.log(chipName, 'was clicked.');
   }

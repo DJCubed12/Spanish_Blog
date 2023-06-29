@@ -24,9 +24,9 @@
       <h2>Glossary</h2>
       <mat-chip-set>
         <mat-chip
-          *ngFor="let x of chips"
-          (removed)="remove(x)"
-          (click)="clicked(x)"
+          *ngFor="let x of glossary"
+          (removed)="removeWord(x)"
+          (click)="clickedWord(x)"
         >
           {{ x }}
           <mat-icon matChipRemove>cancel</mat-icon>
@@ -34,7 +34,7 @@
       </mat-chip-set>
 
       <input type="text" #chipName />
-      <button type="button" (click)="addChip(chipName.value)">Add</button>
+      <button type="button" (click)="addWord(chipName.value)">Add</button>
     </mat-card-content>
   </form>
 
