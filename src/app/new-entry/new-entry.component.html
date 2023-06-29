@@ -20,6 +20,19 @@
           spellcheck="true"
         ></textarea>
       </mat-form-field>
+
+      <h2>Glossary</h2>
+      <mat-chip-set>
+        <!-- Make click event change chip color to mimic selectable chips w/o the check when selected -->
+        <mat-chip [disabled]="disable" (removed)="doSomething()">
+          First
+          <button matChipRemove aria-label="Remove">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <mat-chip>Second</mat-chip>
+        <mat-chip>Third</mat-chip>
+      </mat-chip-set>
     </mat-card-content>
   </form>
 

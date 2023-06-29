@@ -1,10 +1,12 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 import { EntryService } from '../entry.service';
 import { Entry } from 'src/models';
@@ -21,6 +23,8 @@ import { Entry } from 'src/models';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatChipsModule,
+    MatIconModule,
   ],
 })
 export class NewEntryComponent {
@@ -30,6 +34,8 @@ export class NewEntryComponent {
     title: new FormControl(''),
     body: new FormControl(''),
   });
+
+  public disable = false;
 
   constructor(private readonly entryService: EntryService) {}
 
@@ -49,5 +55,10 @@ export class NewEntryComponent {
         // TODO: Error handling
       }
     });
+  }
+
+  doSomething() {
+    console.log('CLICKED!');
+    this.disable = !this.disable;
   }
 }
