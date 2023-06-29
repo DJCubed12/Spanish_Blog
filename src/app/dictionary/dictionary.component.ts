@@ -27,6 +27,10 @@ export class DictionaryComponent {
     );
   }
 
+  public addToGlossary(word: WordResult) {
+    console.log(`Added ${word.word} to glossary`);
+  }
+
   private showResults(results: WordResult[]): void {
     this.message = '';
     this.results = results;
