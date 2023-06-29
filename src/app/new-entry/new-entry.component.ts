@@ -86,9 +86,9 @@ export class NewEntryComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
-      console.log(
-        `${propName} changed from ${changes[propName].previousValue} to ${changes[propName].currentValue?.word}`
-      );
+      if (propName === 'newGlossaryWord' && this.newGlossaryWord) {
+        this.addWord(this.newGlossaryWord);
+      }
     }
   }
 
