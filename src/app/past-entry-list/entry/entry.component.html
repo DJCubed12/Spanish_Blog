@@ -1,9 +1,7 @@
-<div *ngIf="entry" class="entry">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ entry.title }}</mat-card-title>
-    </mat-card-header>
+<mat-card *ngIf="entry" class="entry">
+  <mat-card-header>
+    <mat-card-title>{{ entry.title }}</mat-card-title>
+  </mat-card-header>
 
-    <mat-card-content>{{ entry.body }}</mat-card-content>
-  </mat-card>
-</div>
+  <mat-card-content>{{ entry.body }}</mat-card-content>
+</mat-card>
