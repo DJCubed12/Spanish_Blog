@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common'; // For ngIf, ngFor...
+import { CommonModule } from '@angular/common';
+
+import { MatCardModule } from '@angular/material/card';
 
 import { WordResult } from 'sdapi/lib/dictionary';
 
@@ -8,7 +10,7 @@ import { WordResult } from 'sdapi/lib/dictionary';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatCardModule],
 })
 export class ResultComponent {
   @Input() result: WordResult | null = null;
