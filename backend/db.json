@@ -1,36 +1,54 @@
 {
-  "test": {
-    "value": "Hello, World! I'm JaSON, what's your name?"
-  },
   "entries": [
     {
       "title": "First example post",
       "body": "This is where the core post material lives.",
+      "glossary": [],
       "id": 0
     },
     {
       "title": "Second",
       "body": "needed a 2nd on to see if ngFor is working properly",
+      "glossary": [],
       "id": 1
     },
     {
       "title": "Test",
       "body": "This is a test to see if new posts are properly pushed to json-server. First test after code creation.",
+      "glossary": [],
       "id": 2
     },
     {
       "title": "Test #2",
       "body": "First one worked good. Lets see if the id tracking is working.",
+      "glossary": [],
       "id": 3
     },
     {
       "title": "Test #3",
       "body": "Lets just see if refreshing database info strategy is working.",
+      "glossary": [],
       "id": 4
     },
     {
-      "title": "Refactor to 'entry'",
-      "body": "We have refactored to use 'entry' terminology instead of 'post'. 'Post' can be confused with an REST POST request. It also implies something more public than what we are trying to do here. As this is intended for more personal use, 'entry' felt more apt.",
+      "title": "Test chip save",
+      "body": "There should be one glossary word attached. Sera la palabra silla",
+      "glossary": [
+        {
+          "lang": "en",
+          "word": "silla",
+          "context": "furniture",
+          "meaning": "chair",
+          "part": "noun",
+          "examples": [
+            {
+              "original": "I am going to buy an ergonomic chair for my desk.",
+              "translated": "Voy a comprarme una silla ergonómica para mi escritorio."
+            }
+          ],
+          "regions": []
+        }
+      ],
       "id": 5
     }
   ]

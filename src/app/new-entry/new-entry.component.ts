@@ -66,6 +66,7 @@ export class NewEntryComponent implements OnChanges {
     const entry: Entry = {
       title: this.entryForm.value.title ?? '',
       body: this.entryForm.value.body ?? '',
+      glossary: this.glossary,
     };
     if (!entry.title || !entry.body) return; // Empty post
 
