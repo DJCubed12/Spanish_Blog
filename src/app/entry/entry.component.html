@@ -3,5 +3,17 @@
     <mat-card-title>{{ entry.title }}</mat-card-title>
   </mat-card-header>
 
-  <mat-card-content>{{ entry.body }}</mat-card-content>
+  <mat-card-content>
+    {{ entry.body }}
+
+    <mat-chip-set>
+      <mat-chip
+        *ngFor="let word of entry.glossary; index as glossaryIndex"
+        (click)="clickedWord(glossaryIndex)"
+        matTooltip="({{ word.context }}) {{ word.meaning }}"
+      >
+        {{ word.word }}
+      </mat-chip>
+    </mat-chip-set>
+  </mat-card-content>
 </mat-card>
