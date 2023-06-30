@@ -81,6 +81,11 @@ export class NewEntryComponent implements OnChanges {
 
   addWord(word: WordResult) {
     this.glossary.push(word);
+    this.glossary.sort((a, b) => {
+      if (a.word > b.word) return 1;
+      else if (a.word < b.word) return -1;
+      else return 0;
+    });
   }
 
   removeWord(glossaryIndex: number) {
