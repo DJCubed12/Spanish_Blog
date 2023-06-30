@@ -33,10 +33,17 @@ export class DictionaryComponent {
   public addToGlossary(word: WordResult) {
     // Glossary should only be spanish words (swap word and meaning)
     if (word.lang === Language.English) {
-      let spanishTranslation = word.meaning;
-      word.meaning = word.word;
-      word.word = spanishTranslation;
-      // Swap original and translated in examples too?
+      word = {
+        lang: word.lang,
+        word: word.meaning,
+        gender: word.gender,
+        pronunciation: word.pronunciation,
+        context: word.context,
+        meaning: word.word,
+        part: word.part,
+        examples: word.examples, // These need to be flipped internally if used
+        regions: word.regions,
+      };
     }
 
     this.addToGlossaryEvent.emit(word);
