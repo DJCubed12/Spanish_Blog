@@ -11,7 +11,7 @@ import { EntryService } from './entry.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  public entries?: Entry[];
+  public entries: Entry[] = [];
   public newGlossaryWord?: WordResult;
 
   constructor(private readonly entryService: EntryService) {

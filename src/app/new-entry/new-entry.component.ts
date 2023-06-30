@@ -18,7 +18,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { WordResult } from 'sdapi/lib/dictionary';
-import { Language } from 'sdapi/lib/constants';
 
 import { EntryService } from '../entry.service';
 import { Entry } from 'src/models';

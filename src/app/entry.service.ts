@@ -9,7 +9,7 @@ const URL = 'http://localhost:3000/entries?_sort=id&_order=desc';
   providedIn: 'root',
 })
 export class EntryService {
-  private nextId: number | undefined;
+  private nextId?: number;
 
   constructor() {
     this.getEntries().then((entries) => {

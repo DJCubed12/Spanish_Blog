@@ -9,9 +9,7 @@
     />
 
     <h2 class="previous-entries-header">Previous Entries:</h2>
-    <div *ngIf="entries">
-      <entry *ngFor="let entry of entries" [entry]="entry" class="entry" />
-    </div>
+    <entry *ngFor="let entry of entries" [entry]="entry" class="entry" />
   </div>
 
   <div class="right">
