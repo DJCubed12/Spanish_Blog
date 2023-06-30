@@ -10,7 +10,7 @@ import { Entry } from 'src/models';
 @Component({
   selector: 'entry',
   templateUrl: './entry.component.html',
-  styleUrls: ['./entry.component.css'],
+  styleUrls: ['./entry.component.scss'],
   standalone: true,
   imports: [CommonModule, MatCardModule, MatChipsModule, MatTooltipModule],
 })

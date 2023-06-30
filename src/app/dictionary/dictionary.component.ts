@@ -12,7 +12,7 @@ import { Language } from 'sdapi/lib/constants';
 @Component({
   selector: 'dictionary',
   templateUrl: './dictionary.component.html',
-  styleUrls: ['./dictionary.component.css'],
+  styleUrls: ['./dictionary.component.scss'],
   standalone: true,
   imports: [CommonModule, MatInputModule, ResultComponent],
 })

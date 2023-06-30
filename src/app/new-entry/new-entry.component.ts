@@ -25,7 +25,7 @@ import { Entry } from 'src/models';
 @Component({
   selector: 'new-entry',
   templateUrl: './new-entry.component.html',
-  styleUrls: ['./new-entry.component.css'],
+  styleUrls: ['./new-entry.component.scss'],
   standalone: true,
   providers: [EntryService],
   imports: [

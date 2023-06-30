@@ -9,7 +9,7 @@ import { WordResult } from 'sdapi/lib/dictionary';
 @Component({
   selector: 'result',
   templateUrl: './result.component.html',
-  styleUrls: ['./result.component.css'],
+  styleUrls: ['./result.component.scss'],
   standalone: true,
   imports: [CommonModule, MatCardModule, MatButtonModule],
 })
