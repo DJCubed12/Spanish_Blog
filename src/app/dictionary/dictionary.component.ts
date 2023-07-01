@@ -18,12 +18,12 @@ import { Language } from 'sdapi/lib/constants';
 })
 export class DictionaryComponent {
   public results: WordResult[] = [];
-  public message: string = '';
+  public loading = false;
 
   @Output() private addToGlossaryEvent = new EventEmitter<WordResult>();
 
   public translate(word: string): void {
-    this.message = 'Searching...';
+    this.loading = true;
     sdapi.translate(word).then(
       (results) => this.showResults(results),
       (err) => console.log('Translate error: is CORS disabled?')
@@ -50,7 +50,7 @@ export class DictionaryComponent {
   }
 
   private showResults(results: WordResult[]): void {
-    this.message = '';
     this.results = results;
+    this.loading = false;
   }
 }

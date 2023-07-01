@@ -6,9 +6,9 @@
     (keyup.enter)="translate(word.value)"
     #word
   />
+  <mat-hint *ngIf="loading">Searching...</mat-hint>
 </mat-form-field>
 
-<p *ngIf="message">{{ message }}</p>
 <result
   *ngFor="let r of results"
   [result]="r"
