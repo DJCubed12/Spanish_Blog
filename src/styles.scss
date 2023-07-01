@@ -1,5 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
+@use "@angular/material" as mat;
+@use "./themes.scss" as themes;
+
+@include mat.core();
+@include mat.core-theme(themes.$Main);
+
+/* Global theme individually by component */
+// @include mat.card-theme(themes.$Main);
+// @include mat.input-theme(themes.$Main);
+// @include mat.form-field-theme(themes.$Main);
+// @include mat.button-theme(themes.$Main);
+// @include mat.chips-theme(themes.$Main);
+// @include mat.tooltip-theme(themes.$Main);
+
+/* Globally theme all components */
+@include mat.all-component-themes(
+  themes.$Main
+); // Themes all Angular Material components
+
 html,
 body {
   height: 100%;
