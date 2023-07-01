@@ -5,6 +5,18 @@
 $deep-orange: mat.define-palette(mat.$deep-orange-palette, 500);
 $green: mat.define-palette(mat.$green-palette, 600);
 
+/* Typography */
+// mat.define-typography-level(font-size, line-height, font-weight)
+$main-typography: mat.define-typography-config(
+  $headline-5: /* h1 */
+    mat.define-typography-level(60px, 70px, 400, $letter-spacing: 0.05em),
+  $headline-6: /* h2 */
+    mat.define-typography-level(40px, 50px, 350),
+  $subtitle-1: /* h3 */
+    mat.define-typography-level(20px, 25px, 300, $letter-spacing: -0.05em),
+  /* $body-1 = h4 */
+);
+
 /* Themes */
 $Main: mat.define-dark-theme(
   (

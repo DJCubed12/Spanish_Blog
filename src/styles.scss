@@ -19,6 +19,8 @@
   themes.$Main
 ); // Themes all Angular Material components
 
+@include mat.typography-hierarchy(themes.$main-typography);
+
 html,
 body {
   height: 100%;
@@ -26,5 +28,4 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
