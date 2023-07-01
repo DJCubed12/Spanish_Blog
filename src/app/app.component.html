@@ -9,7 +9,9 @@
     />
 
     <h2 class="previous-entries-header">Previous Entries:</h2>
-    <entry *ngFor="let entry of entries" [entry]="entry" class="entry" />
+    <div *ngFor="let entry of entries" class="entry">
+      <entry [entry]="entry" />
+    </div>
   </div>
 
   <dictionary

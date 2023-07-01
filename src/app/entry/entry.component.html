@@ -10,6 +10,7 @@
   <mat-card-content>
     {{ entry.body }}
 
+    <h3 *ngIf="entry.glossary.length > 0">Glossary</h3>
     <mat-chip-set>
       <mat-chip
         *ngFor="let word of entry.glossary; index as glossaryIndex"
