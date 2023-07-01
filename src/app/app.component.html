@@ -12,8 +12,9 @@
     <entry *ngFor="let entry of entries" [entry]="entry" class="entry" />
   </div>
 
-  <div class="right">
-    <dictionary (addToGlossaryEvent)="this.newGlossaryWord = $event" />
-  </div>
+  <dictionary
+    class="dictionary"
+    (addToGlossaryEvent)="this.newGlossaryWord = $event"
+  />
 </div>
 <router-outlet></router-outlet>

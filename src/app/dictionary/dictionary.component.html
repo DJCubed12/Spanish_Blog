@@ -9,8 +9,6 @@
   <mat-hint *ngIf="loading">Searching...</mat-hint>
 </mat-form-field>
 
-<result
-  *ngFor="let r of results"
-  [result]="r"
-  (addToGlossaryEvent)="addToGlossary($event)"
-></result>
+<div *ngFor="let r of results" class="result">
+  <result [result]="r" (addToGlossaryEvent)="addToGlossary($event)"></result>
+</div>
