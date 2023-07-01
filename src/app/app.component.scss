@@ -1,7 +1,6 @@
 .header {
   display: block;
   text-align: center;
-  background: white;
 }
 
 .columns {
@@ -11,13 +10,18 @@
   gap: 10px;
 }
 
-.left {
-  background: blue;
-}
+// If removed, also remove class in div elements
+// .left {
+//   background: blue;
+// }
 
-.middle {
-  background: yellowgreen;
-}
+// .middle {
+//   background: yellowgreen;
+// }
+
+// .right {
+//   background: blueviolet;
+// }
 
 .previous-entries-header {
   text-align: center;
@@ -25,8 +29,4 @@
 
 .entry {
   margin: 15px;
-}
-
-.right {
-  background: blueviolet;
 }
