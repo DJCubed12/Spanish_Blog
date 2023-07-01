@@ -73,8 +73,8 @@ To use colors from palettes on our custom components, include a mixin defined in
 
 ```scss
 @mixin my-palette($hue: 500) {
-  background-color: mat.get-color-from-palette($primary, $hue);
-  color: mat.get-color-from-palette($primary, "#{$hue}-contrast");
+  background-color: mat.get-color-from-palette($my-palette, $hue);
+  color: mat.get-color-from-palette($my-palette, "#{$hue}-contrast");
 }
 ```
 
