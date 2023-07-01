@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
+import { ConjugatorComponent } from './conjugator/conjugator.component';
 import { NewEntryComponent } from './new-entry/new-entry.component';
 import { EntryComponent } from './entry/entry.component';
 import { DictionaryComponent } from './dictionary/dictionary.component';
@@ -16,6 +17,7 @@ import { EntryService } from './entry.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ConjugatorComponent,
     NewEntryComponent,
     EntryComponent,
     DictionaryComponent,
