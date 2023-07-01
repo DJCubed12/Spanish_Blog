@@ -1,39 +1,27 @@
 @use "sass:map";
 @use "@angular/material" as mat;
 
-$primary: mat.define-palette(mat.$pink-palette);
-$accent: mat.define-palette(mat.$blue-grey-palette);
+$basic: mat.define-palette(mat.$grey-palette);
+$primary: mat.define-palette(mat.$blue-grey-palette);
+$accent: mat.define-palette(mat.$pink-palette);
 $warn: mat.define-palette(mat.$red-palette);
 
-$theme: mat.define-dark-theme(
-  (
-    color: (
-      primary: $primary,
-      accent: $accent,
-      warn: $warn,
-    ),
-  )
-);
-$color-config: mat.get-color-config($theme);
+@mixin basic($hue: 500) {
+  background-color: mat.get-color-from-palette($basic, $hue);
+  color: mat.get-color-from-palette($basic, "#{$hue}-contrast");
+}
 
-$primary-palette: map.get($color-config, "primary");
-$accent-palette: map.get($color-config, "accent");
-$warn-palette: map.get($color-config, "warn");
-$is-dark-theme: map.get($color-config, "is-dark");
+@mixin primary($hue: 500) {
+  background-color: mat.get-color-from-palette($primary, $hue);
+  color: mat.get-color-from-palette($primary, "#{$hue}-contrast");
+}
 
-@mixin theme {
-  .primary {
-    background: mat.get-color-from-palette($primary-palette, "500");
-    color: mat.get-color-from-palette($primary-palette, "500-contrast");
-  }
+@mixin accent($hue: 500) {
+  background-color: mat.get-color-from-palette($accent, $hue);
+  color: mat.get-color-from-palette($accent, "#{$hue}-contrast");
+}
 
-  .accent {
-    background: mat.get-color-from-palette($accent-palette, "500");
-    color: mat.get-color-from-palette($accent-palette, "500-contrast");
-  }
-
-  .warn {
-    background: mat.get-color-from-palette($warn-palette, "500");
-    color: mat.get-color-from-palette($warn-palette, "500-contrast");
-  }
+@mixin warn($hue: 500) {
+  background-color: mat.get-color-from-palette($warn, $hue);
+  color: mat.get-color-from-palette($warn, "#{$hue}-contrast");
 }
