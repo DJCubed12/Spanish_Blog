@@ -1,6 +1,10 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>{{ entry.title }}</mat-card-title>
+    <mat-card-subtitle>
+      {{ getCreateDate() | date : "EEEE, MMM d, y" }} at
+      {{ getCreateDate() | date : "h:mm a" }}
+    </mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>

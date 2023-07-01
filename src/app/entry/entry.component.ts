@@ -21,4 +21,8 @@ export class EntryComponent {
     // NOTE: Clicking remove icon doesn't trigger this; Very good for my purposes of changing its color and showing definition
     console.log(`${this.entry!.glossary[glossaryIndex].word} was clicked.`);
   }
+
+  public getCreateDate(): Date {
+    return new Date(this.entry.createDate);
+  }
 }

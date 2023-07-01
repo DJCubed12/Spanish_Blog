@@ -66,6 +66,7 @@ export class NewEntryComponent implements OnChanges {
       title: this.entryForm.value.title ?? '',
       body: this.entryForm.value.body ?? '',
       glossary: this.glossary,
+      createDate: new Date().toISOString(),
     };
     if (!entry.title || !entry.body) return; // Empty post
 
