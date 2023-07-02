@@ -73,6 +73,7 @@ export class NewEntryComponent implements OnChanges {
     this.entryService.postEntries(entry).then((success: boolean) => {
       if (success) {
         this.entryForm.reset();
+        this.glossary = [];
         this.refreshEntriesEvent.emit();
       } else {
         // TODO: Error handling
