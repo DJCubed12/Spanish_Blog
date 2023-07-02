@@ -6,7 +6,17 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Backend database
 
-Run `npm run backend` to start a `json-server` database on port `3000` (`http://localhost:3000/`).
+Run `npm run backend` to start a `json-server` database on port `3000` (`http://localhost:3000/`). See Setup below before running for the first time.
+
+### Setup
+
+In order for the backend database to run, a json file must already exist. Before first run, create a file called `db.json` with contents:
+
+```json
+{
+  "entries": []
+}
+```
 
 # Developement Help & Conventions
 
