@@ -48,9 +48,39 @@ To use colors from palettes on our custom components, include a mixin defined in
 }
 ```
 
+## Typography
+
+Typography is also handled using Angular Material. Below describe how it is used here. More information can be found at https://material.angular.io/guide/typography (this guide is better explained than theirs on Themeing).
+
+A _level_ defines `font-size`, `font-family`, `font-weight`, `line-height`, and `letter-spacing` for text. Levels have a heirarchy similar to html header tags (See table below).
+
+A _typography config_ collects the levels used in an application. This can then be used in the definition of a theme (see next section). It can also be used and accessed for custom components by including this globally:
+
+```scss
+@include mat.typography-hierarchy(themes.$main-typography);
+```
+
+Each level has a respective `css` class that can be added to custom components. The table below lists these class names and the available levels:
+
+| CSS class                           | Level name | Native elements |
+| ----------------------------------- | ---------- | --------------- |
+| .mat-headline-1                     | headline-1 | None            |
+| .mat-headline-2                     | headline-2 | None            |
+| .mat-headline-3                     | headline-3 | None            |
+| .mat-headline-4                     | headline-4 | None            |
+| .mat-h1 or .mat-headline-5          | headline-5 | \<h1>           |
+| .mat-h2 or .mat-headline-6          | headline-6 | \<h2>           |
+| .mat-h3 or .mat-subtitle-1          | subtitle-1 | \<h3>           |
+| .mat-h4 or .mat-body-1              | body-1     | \<h4>           |
+| .mat-h5                             | None       | \<h5>           |
+| .mat-h6                             | None       | \<h6>           |
+| .mat-body or .mat-body-2            | body-2     | Body text       |
+| .mat-body-strong or .mat-subtitle-2 | subtitle-2 | None            |
+| .mat-small or .mat-caption          | caption    | None            |
+
 ## Themes
 
-Themes use combine several palettes as well as typography for use by Angular Material components. They also define size and margining by a `density`. By convention, they are named in `$Capital-kabob-case`. They are created like this:
+Themes use combine several palettes as well as a typography config for use by Angular Material components. They also define size and margining by a `density`. By convention, they are named in `$Capital-kabob-case`. They are created like this:
 
 ```scss
 $My-theme: mat.define-dark-theme(

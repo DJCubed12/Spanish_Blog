@@ -21,9 +21,16 @@
         ></textarea>
       </mat-form-field>
 
-      <h3 *ngIf="glossary.length > 0; else glossaryHelp">Glossary</h3>
+      <h3
+        *ngIf="glossary.length > 0; else glossaryHelp"
+        class="mat-headline-6 glossary-header"
+      >
+        Glossary
+      </h3>
       <ng-template #glossaryHelp>
-        <h3>Use the dictionary to add words to the glossary</h3>
+        <h3 class="mat-headline-6 glossary-header">
+          Use the dictionary to add words to the glossary
+        </h3>
       </ng-template>
 
       <mat-chip-set>

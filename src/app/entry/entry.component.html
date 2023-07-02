@@ -12,7 +12,12 @@
       {{ paragraph }}<br />
     </div>
 
-    <h3 *ngIf="entry.glossary.length > 0">Glossary</h3>
+    <h3
+      *ngIf="entry.glossary.length > 0"
+      class="mat-headline-6 glossary-header"
+    >
+      Glossary
+    </h3>
     <mat-chip-set>
       <mat-chip
         *ngFor="let word of entry.glossary; index as glossaryIndex"
