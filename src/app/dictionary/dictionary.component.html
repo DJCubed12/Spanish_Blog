@@ -1,5 +1,9 @@
-<mat-form-field class="translate-input">
-  <mat-label>Translate</mat-label>
+<mat-form-field
+  color="accent"
+  class="translate-input"
+  (click)="word.value = ''"
+>
+  <mat-label>Search Dictionary</mat-label>
   <input
     matInput
     spellcheck="true"
