@@ -25,4 +25,12 @@ export class EntryComponent {
   public getCreateDate(): Date {
     return new Date(this.entry.createDate);
   }
+
+  /**
+   * Returns the entry body split into an array on newlines.
+   * This allows the template to properly break text where needed.
+   */
+  public splitBodyByNewlines(): string[] {
+    return this.entry.body.split('\n');
+  }
 }

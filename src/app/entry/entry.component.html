@@ -8,7 +8,9 @@
   </mat-card-header>
 
   <mat-card-content>
-    {{ entry.body }}
+    <div *ngFor="let paragraph of splitBodyByNewlines()">
+      {{ paragraph }}<br />
+    </div>
 
     <h3 *ngIf="entry.glossary.length > 0">Glossary</h3>
     <mat-chip-set>
