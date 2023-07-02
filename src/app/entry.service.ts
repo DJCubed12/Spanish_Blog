@@ -9,14 +9,6 @@ const URL = 'http://localhost:3000/entries?_sort=id&_order=desc';
   providedIn: 'root',
 })
 export class EntryService {
-  private nextId?: number;
-
-  constructor() {
-    this.getEntries().then((entries) => {
-      this.nextId = entries.length;
-    });
-  }
-
   async getEntries(): Promise<Entry[]> {
     const data = await fetch(URL);
     return await data.json();
@@ -27,13 +19,6 @@ export class EntryService {
    * @returns true if successful, false if an error occured.
    */
   async postEntries(entry: Entry): Promise<boolean> {
-    if (this.nextId === undefined) {
-      console.log('EntryService error: nextId is undefined');
-      return false;
-    }
-
-    entry.id = this.nextId;
-
     const response = await fetch(URL, {
       method: 'POST',
       headers: {
@@ -42,12 +27,10 @@ export class EntryService {
       body: JSON.stringify(entry),
     });
 
-    if (response.ok) {
-      this.nextId++;
-      return true;
-    } else {
+    if (!response.ok) {
       console.log(`EntryService error: Bad post ${response.status}`);
       return false;
     }
+    return true;
   }
 }
