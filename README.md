@@ -18,30 +18,37 @@ In order for the backend database to run, a json file must already exist. Before
 }
 ```
 
-# Developement Help & Conventions
-
-## Styling & Themeing
+# Styling & Themeing
 
 Style sheets can be registed as global across the app in `angular.json` in the `styles` list. `src/styles.scss` is a listed here. There `@include mat.core()` and `@mat.core-theme()` lie to provide base themeing for the app.
 
 This project accomplishes themeing through angular's framework. The palettes and themes used in the app are defined in `src/themes.scss` using this framework.
 
-### Palettes
+## Palettes
 
 Palettes define a color to be used in any of several hues. They are named in `$lower-kabob-case` by convention here. New palettes are created like this:
 
 ```scss
-$my-palette: mat.define-palette(mat.$deep-orange-palette, 900, A100, A400);
+$my-palette: mat.define-palette(mat.$deep-orange-palette, 900);
 ```
 
 Parameters
 
 1. The angular palette to base it off of.
 2. (Optional) The default hue used if one is not provided.
-3. (Optional) Defines the 'light' hue.
-4. (Optional) Defines the 'dark' hue.
 
-### Themes
+### Reading palette colors for custom components
+
+To use colors from palettes on our custom components, include a mixin defined in `src/themes.scss` inside a ruleset. These mixins reflect the name of the palette used and take an optional argument for what hue value to use (`500` is used by default). Define new mixins like this:
+
+```scss
+@mixin my-palette($hue: 500) {
+  background-color: mat.get-color-from-palette($my-palette, $hue);
+  color: mat.get-color-from-palette($my-palette, "#{$hue}-contrast");
+}
+```
+
+## Themes
 
 Themes use combine several palettes as well as typography for use by Angular Material components. They also define size and margining by a `density`. By convention, they are named in `$Capital-kabob-case`. They are created like this:
 
@@ -76,17 +83,6 @@ Not all of our Angular Material components are globally themed, therefore they m
 ```
 
 Each Angular Material component has it respective mixin like `mat.button-theme()`. They each take on argument for what theme to use. To see complete list of these mixins, see the Angular Material source files: https://github.com/angular/components/blob/main/src/material/core/theming/_all-theme.scss
-
-### Using palettes on custom components
-
-To use colors from palettes on our custom components, include a mixin defined in `src/themes.scss` inside a ruleset. These mixins reflect the name of the palette used and take an optional argument for what hue value to use (`500` is used by default). Define new mixins like this:
-
-```scss
-@mixin my-palette($hue: 500) {
-  background-color: mat.get-color-from-palette($my-palette, $hue);
-  color: mat.get-color-from-palette($my-palette, "#{$hue}-contrast");
-}
-```
 
 # Angular help
 
