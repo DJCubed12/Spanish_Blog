@@ -21,4 +21,8 @@ export class ResultComponent {
   public addToGlossary() {
     this.addToGlossaryEvent.emit(this.result);
   }
+
+  public jsonInfo(): string {
+    return JSON.stringify(this.result);
+  }
 }

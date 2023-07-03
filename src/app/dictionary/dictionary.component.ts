@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 import { ResultComponent } from './result/result.component';
 
@@ -14,7 +15,7 @@ import { Language } from 'sdapi/lib/constants';
   templateUrl: './dictionary.component.html',
   styleUrls: ['./dictionary.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatInputModule, ResultComponent],
+  imports: [CommonModule, MatInputModule, MatCardModule, ResultComponent],
 })
 export class DictionaryComponent {
   public results: WordResult[] = [];
@@ -47,6 +48,23 @@ export class DictionaryComponent {
     }
 
     this.addToGlossaryEvent.emit(word);
+  }
+
+  public groupByWordAndPart() {
+    let groups: WordResult[][] = [];
+    let lastWord: string = '';
+    let lastPart: string = '';
+    for (const result of this.results) {
+      if (result.word !== lastWord || result.part !== lastPart) {
+        groups.push([]);
+        lastWord = result.word;
+        lastPart = result.part;
+      }
+
+      groups.at(-1)!.push(result);
+    }
+
+    return groups;
   }
 
   private showResults(results: WordResult[]): void {

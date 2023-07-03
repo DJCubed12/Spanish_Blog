@@ -1,3 +1,14 @@
+<!-- <div *ngFor="let group of groupByWordAndPart()">
+  <p>
+    <b>{{ group[0].word }} - {{ group[0].part }}</b>
+  </p>
+  <p>
+    <i *ngFor="let word of group"
+      >({{ word.context }}) {{ word.meaning }}<br />
+    </i>
+  </p>
+</div> -->
+
 <mat-form-field
   color="accent"
   class="translate-input"
@@ -13,6 +24,19 @@
   <mat-hint *ngIf="loading">Searching...</mat-hint>
 </mat-form-field>
 
-<div *ngFor="let r of results" class="result">
+<!-- <div *ngFor="let r of results" class="result">
   <result [result]="r" (addToGlossaryEvent)="addToGlossary($event)"></result>
-</div>
+</div> -->
+
+<mat-card *ngFor="let group of groupByWordAndPart()">
+  <mat-card-header>
+    <mat-card-title>{{ group[0].word }}</mat-card-title>
+    <mat-card-subtitle>{{ group[0].part }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <result
+    *ngFor="let result of group"
+    [result]="result"
+    (addToGlossaryEvent)="addToGlossary($event)"
+  ></result>
+</mat-card>
