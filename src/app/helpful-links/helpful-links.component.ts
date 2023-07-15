@@ -52,6 +52,13 @@ export class HelpfulLinksComponent {
     };
     if (!newLink.name || !newLink.url) return;
 
-    this.links.push(newLink);
+    this.helpfulLinksService.postLink(newLink).then((success: boolean) => {
+      if (success) {
+        this.addLinkForm.reset();
+        this.getLinks();
+      } else {
+        // Error Handling
+      }
+    });
   }
 }

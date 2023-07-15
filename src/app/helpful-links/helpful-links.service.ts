@@ -13,4 +13,24 @@ export class HelpfulLinksService {
     const data = await fetch(URL);
     return data.json();
   }
+
+  /**
+   * POST new link to database
+   * @returns true if successful, false if an error occured.
+   */
+  async postLink(link: Link): Promise<boolean> {
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(link),
+    });
+
+    if (!response.ok) {
+      console.log(`EntryService error: Bad post ${response.status}`);
+      return false;
+    }
+    return true;
+  }
 }
