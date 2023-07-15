@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Helpful Links</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <ul>
+      <li *ngFor="let link of links">
+        <a
+          [href]="link.url"
+          target="_blank"
+          class="mat-subtitle-1 link"
+          [matTooltip]="link.url"
+          matTooltipPosition="right"
+          matTooltipShowDelay="750"
+        >
+          {{ link.name }}
+        </a>
+      </li>
+    </ul>
+
+    <form [formGroup]="addLinkForm">
+      <mat-form-field class="input" color="accent">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput />
+      </mat-form-field>
+      <mat-form-field class="input" color="accent">
+        <mat-label>Link</mat-label>
+        <input formControlName="url" matInput />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <div>
+      <button mat-raised-button color="accent" (click)="addLink()">Add</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

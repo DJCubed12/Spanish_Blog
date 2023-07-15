@@ -1,31 +1,30 @@
 import { Injectable } from '@angular/core';
 
 import { API_BASE_URL } from 'src/constants';
-import { Entry } from '../models';
+import { Link } from 'src/models';
 
-const URL = API_BASE_URL + 'entries?_sort=id&_order=desc';
-// Later paginate with ...&_page=# and prev/next buttons
+const URL = API_BASE_URL + 'helpful-links';
 
 @Injectable({
   providedIn: 'root',
 })
-export class EntryService {
-  async getEntries(): Promise<Entry[]> {
+export class HelpfulLinksService {
+  async getLinks(): Promise<Link[]> {
     const data = await fetch(URL);
-    return await data.json();
+    return data.json();
   }
 
   /**
-   * Send POST request with entry to backend server
+   * POST new link to database
    * @returns true if successful, false if an error occured.
    */
-  async postEntries(entry: Entry): Promise<boolean> {
+  async postLink(link: Link): Promise<boolean> {
     const response = await fetch(URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(entry),
+      body: JSON.stringify(link),
     });
 
     if (!response.ok) {
