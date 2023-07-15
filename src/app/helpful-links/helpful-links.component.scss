@@ -1,3 +1,15 @@
+@use "../../themes.scss" as themes;
+
 .input {
   width: 100%;
+}
+
+.link {
+  color: themes.getColor(themes.$green, 600);
+  text-decoration: none;
+
+  &:hover {
+    color: themes.getColor(themes.$green, "600-contrast");
+    text-decoration: underline;
+  }
 }

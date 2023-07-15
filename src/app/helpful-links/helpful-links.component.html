@@ -6,7 +6,16 @@
   <mat-card-content>
     <ul>
       <li *ngFor="let link of links">
-        <a [href]="link.url" target="_blank">{{ link.name }}</a>
+        <a
+          [href]="link.url"
+          target="_blank"
+          class="mat-subtitle-1 link"
+          [matTooltip]="link.url"
+          matTooltipPosition="right"
+          matTooltipShowDelay="750"
+        >
+          {{ link.name }}
+        </a>
       </li>
     </ul>
 

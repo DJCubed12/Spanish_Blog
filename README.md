@@ -40,14 +40,17 @@ Parameters
 
 ### Reading palette colors for custom components
 
-To use colors from palettes on our custom components, include a mixin defined in `src/themes.scss` inside a ruleset. These mixins reflect the name of the palette used and take an optional argument for what hue value to use (`500` is used by default). Define new mixins like this:
+Palette colors can be read and used for custom styling using the defined `getColor` function in `src/themes.scss`.
 
 ```scss
-@mixin my-palette($hue: 500) {
-  background-color: mat.get-color-from-palette($my-palette, $hue);
-  color: mat.get-color-from-palette($my-palette, "#{$hue}-contrast");
+@use "../themes.scss" as themes;
+
+p {
+  color: themes.getColor(themes.$green, 500);
 }
 ```
+
+The first argument is the palette, and the second is an optional hue to use (default is 500). Hue can also given in the form `###-contrast` to get the contrast color for a hue of `###`.
 
 ## Typography
 

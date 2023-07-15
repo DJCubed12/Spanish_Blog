@@ -21,3 +21,6 @@ $Main: mat.define-dark-theme(
 );
 
 /* Custom themes (palette mixins) */
+@function getColor($palette, $hue: 500) {
+  @return mat.get-color-from-palette($palette, $hue);
+}
