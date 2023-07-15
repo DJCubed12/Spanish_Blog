@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 
+import { API_BASE_URL } from 'src/constants';
 import { Entry } from '../models';
 
-const URL = 'http://localhost:3000/entries?_sort=id&_order=desc';
+const URL = API_BASE_URL + 'entries?_sort=id&_order=desc';
 // Later paginate with ...&_page=# and prev/next buttons
 
 @Injectable({

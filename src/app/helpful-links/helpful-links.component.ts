@@ -27,7 +27,7 @@ import { Link } from 'src/models';
 export class HelpfulLinksComponent {
   public links: Link[] = [
     {
-      name: 'Google Translate',
+      name: 'Loading',
       url: 'https://www.google.com/search?q=span+to+eng',
     },
   ];
@@ -37,7 +37,13 @@ export class HelpfulLinksComponent {
     url: new FormControl(''),
   });
 
-  constructor() {}
+  constructor(private readonly helpfulLinksService: HelpfulLinksService) {
+    this.getLinks();
+  }
+
+  public getLinks(): void {
+    this.helpfulLinksService.getLinks().then((l) => (this.links = l));
+  }
 
   public addLink() {
     const newLink: Link = {

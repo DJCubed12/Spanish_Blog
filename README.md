@@ -14,7 +14,8 @@ In order for the backend database to run, a json file must already exist. Before
 
 ```json
 {
-  "entries": []
+  "entries": [],
+  "helpful-links": []
 }
 ```
 
