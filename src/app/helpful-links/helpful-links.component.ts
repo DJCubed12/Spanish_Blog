@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,12 +14,13 @@ import { Link } from 'src/models';
 @Component({
   selector: 'helpful-links',
   templateUrl: './helpful-links.component.html',
-  styleUrls: ['./helpful-links.component.css'],
+  styleUrls: ['./helpful-links.component.scss'],
   standalone: true,
   providers: [HelpfulLinksService],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
