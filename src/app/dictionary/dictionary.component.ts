@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatInputModule } from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
 
 import { ResultComponent } from './result/result.component';
 
@@ -15,7 +15,7 @@ import { Language } from 'sdapi/lib/constants';
   templateUrl: './dictionary.component.html',
   styleUrls: ['./dictionary.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatInputModule, MatCardModule, ResultComponent],
+  imports: [CommonModule, MatExpansionModule, MatInputModule, ResultComponent],
 })
 export class DictionaryComponent {
   public results: WordResult[] = [];
@@ -65,6 +65,15 @@ export class DictionaryComponent {
     }
 
     return groups;
+  }
+
+  /** Used to help angular when iterating over groupByWordAndPart() */
+  public trackWordGroup(index: number, group: WordResult[]) {
+    let key = `{index}`;
+    for (let word of group) {
+      key += word.context + word.meaning;
+    }
+    return key;
   }
 
   private showResults(results: WordResult[]): void {
