@@ -1,46 +1,14 @@
-<!-- <mat-card>
-  <mat-card-header>
-    <mat-card-title>Test master title</mat-card-title>
-  </mat-card-header>
+<h1>({{ result.context }}) {{ result.meaning }}</h1>
+<h2 *ngIf="result.gender || result.regions.length">
+  <span *ngIf="result.gender">[{{ result.gender }}] </span>
+  <span *ngIf="result.regions.length">{{ result.regions }}</span>
+</h2>
 
-  <mat-card-content>
-    <p>Master Content</p>
+{{ result.examples[0].translated }}
+<br />
+<i>{{ result.examples[0].original }}</i>
 
-    <mat-card color="primary">
-      <mat-card-header>
-        <mat-card-title>Inner card</mat-card-title>
-      </mat-card-header>
-
-      <mat-card-content>Inner card content</mat-card-content>
-
-      <mat-card-header>
-        <mat-card-title>2nd title</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-  </mat-card-content>
-</mat-card> -->
-
-<!-- <mat-card> -->
-<!-- TODO: lang and word should be written above from parent -->
-<mat-card-header>
-  <mat-card-title>({{ result.context }}) {{ result.meaning }}</mat-card-title>
-  <mat-card-subtitle *ngIf="result.gender || result.regions.length">
-    <span *ngIf="result.gender">[{{ result.gender }}] </span>
-    <span *ngIf="result.regions.length">{{ result.regions }}</span>
-  </mat-card-subtitle>
-</mat-card-header>
-
-<mat-card-content>
-  {{ result.examples[0].translated }}
-  <br />
-  <i>{{ result.examples[0].original }}</i>
-
-  <p *ngIf="true">
-    {{ jsonInfo() }}
-  </p>
-</mat-card-content>
-
-<mat-card-actions align="end">
+<div>
   <button
     type="button"
     mat-raised-button
@@ -49,5 +17,4 @@
   >
     Add to Glossary
   </button>
-</mat-card-actions>
-<!-- </mat-card> -->
+</div>
