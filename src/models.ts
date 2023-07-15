@@ -6,3 +6,8 @@ export interface Entry {
   glossary: WordResult[];
   createDate: string;
 }
+
+export interface Link {
+  name: string;
+  url: string;
+}

@@ -1,3 +1,17 @@
-<p>
-  helpful-links works!
-</p>
+<div *ngFor="let link of links">
+  <p>
+    <a [href]="link.url" target="_blank">{{ link.name }}</a>
+  </p>
+</div>
+
+<form [formGroup]="addLinkForm">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Link</mat-label>
+    <input formControlName="url" matInput />
+  </mat-form-field>
+  <button mat-raised-button (click)="addLink()">Add</button>
+</form>
