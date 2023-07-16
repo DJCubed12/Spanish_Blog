@@ -1,20 +1,24 @@
-<h1>({{ result.context }}) {{ result.meaning }}</h1>
-<h2 *ngIf="result.gender || result.regions.length">
-  <span *ngIf="result.gender">[{{ result.gender }}] </span>
-  <span *ngIf="result.regions.length">{{ result.regions }}</span>
-</h2>
-
-{{ result.examples[0].translated }}
-<br />
-<i>{{ result.examples[0].original }}</i>
-
 <div>
-  <button
-    type="button"
-    mat-raised-button
-    color="accent"
-    (click)="addToGlossary()"
-  >
-    Add to Glossary
-  </button>
+  <h2>({{ result.context }}) {{ result.meaning }}</h2>
+  <h3 *ngIf="result.gender || result.regions.length">
+    <span *ngIf="result.gender">[{{ result.gender }}] </span>
+    <span *ngIf="result.regions.length">{{ result.regions }}</span>
+  </h3>
+
+  <div>
+    {{ result.examples[0].translated }}
+    <br />
+    <i>{{ result.examples[0].original }}</i>
+  </div>
+
+  <div class="add-to-glossary-button">
+    <button
+      type="button"
+      mat-raised-button
+      color="accent"
+      (click)="addToGlossary()"
+    >
+      Add to Glossary
+    </button>
+  </div>
 </div>
